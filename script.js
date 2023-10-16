@@ -13,10 +13,12 @@ function onFormSubmit() {
 
 function readFormData() {
     var formData = {};
-    formData["fullName"] = document.getElementById("fullName").value;
-    formData["empCode"] = document.getElementById("empCode").value;
-    formData["salary"] = document.getElementById("salary").value;
-    formData["city"] = document.getElementById("city").value;
+    formData["Department"] = document.getElementById("Department").value;
+    formData["Section"] = document.getElementById("Section").value;
+    formData["SrtRoll"] = document.getElementById("SrtRoll").value;
+    formData["EndRoll"] = document.getElementById("EndRoll").value;
+    return formData;
+
     return formData;
 }
 
@@ -24,38 +26,38 @@ function insertNewRecord(data) {
     var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.fullName;
+    cell1.innerHTML = data.Department;
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.empCode;
+    cell2.innerHTML = data.Section;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.salary;
+    cell3.innerHTML = data.SrtRoll;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.city;
+    cell4.innerHTML = data.EndRoll;
     cell4 = newRow.insertCell(4);
-    cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+    cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a><br>
                        <a onClick="onDelete(this)">Delete</a>`;
 }
 
 function resetForm() {
-    document.getElementById("fullName").value = "";
-    document.getElementById("empCode").value = "";
-    document.getElementById("salary").value = "";
-    document.getElementById("city").value = "";
+    document.getElementById("Department").value = "";
+    document.getElementById("Section").value = "";
+    document.getElementById("SrtRoll").value = "";
+    document.getElementById("EndRoll").value = "";
     selectedRow = null;
 }
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("fullName").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("empCode").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("salary").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("city").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("Department").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("Section").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("SrtRoll").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("EndRoll").value = selectedRow.cells[3].innerHTML;
 }
 function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.fullName;
-    selectedRow.cells[1].innerHTML = formData.empCode;
-    selectedRow.cells[2].innerHTML = formData.salary;
-    selectedRow.cells[3].innerHTML = formData.city;
+    selectedRow.cells[0].innerHTML = formData.Department;
+    selectedRow.cells[1].innerHTML = formData.Section;
+    selectedRow.cells[2].innerHTML = formData.SrtRoll;
+    selectedRow.cells[3].innerHTML = formData.EndRoll;
 }
 
 function onDelete(td) {
@@ -67,13 +69,13 @@ function onDelete(td) {
 }
 function validate() {
     isValid = true;
-    if (document.getElementById("fullName").value == "") {
+    if (document.getElementById("Department").value == "") {
         isValid = false;
-        document.getElementById("fullNameValidationError").classList.remove("hide");
+        document.getElementById("DepartmentValidationError").classList.remove("hide");
     } else {
         isValid = true;
-        if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
-            document.getElementById("fullNameValidationError").classList.add("hide");
+        if (!document.getElementById("DepartmentValidationError").classList.contains("hide"))
+            document.getElementById("DepartmentValidationError").classList.add("hide");
     }
     return isValid;
 }

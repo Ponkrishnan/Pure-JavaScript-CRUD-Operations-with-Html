@@ -8,41 +8,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body >
     <table>
         <tr>
             <td>
                 <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                     <div>
-                        <label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
-                        <input type="text" name="fullName" id="fullName">
+                        <label>Department </label><label class="validation-error hide" id="DepartmentValidationError">This field is required.</label>
+                        <input type="text" name="Department" id="Department">
+                    </div>
+                    <div></div>
+                        <label>Section</label>
+                        <input type="text" name="Section" id="Section">
                     </div>
                     <div>
-                        <label>EMP Code</label>
-                        <input type="text" name="empCode" id="empCode">
+                        <label>SrtRoll</label>
+                        <input type="text" name="SrtRoll" id="SrtRoll">
                     </div>
                     <div>
-                        <label>Salary</label>
-                        <input type="text" name="salary" id="salary">
+                        <label>EndRoll</label>
+                        <input type="text" name="EndRoll" id="EndRoll">
                     </div>
-                    <div>
-                        <label>City</label>
-                        <input type="text" name="city" id="city">
-                    </div>
+
                     <div  class="form-action-buttons">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="ADD">
                     </div>
+
                 </form>
             </td>
             <td>
                 <table class="list" id="employeeList">
                     <thead>
                         <tr>
-                            <th>Full Name</th>
-                            <th>EMP Code</th>
-                            <th>Salary</th>
-                            <th>City</th>
-                            <th></th>
+                            <th>Department </th>
+                            <th>Section</th>
+                            <th>SrtRoll</th>
+                            <th>EndRoll</th>
                         </tr>
                     </thead>
                     <tbody>
